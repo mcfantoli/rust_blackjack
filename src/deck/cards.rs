@@ -1,8 +1,8 @@
 use std::fmt;
 use std::cmp::Ordering;
 use std::slice::Iter;
-use crate::cards::Rank::*;
-use crate::cards::Suit::*;
+use self::Rank::*;
+use self::Suit::*;
 
 
 #[derive(Copy, Clone, Hash, Eq, PartialEq, PartialOrd, Debug)]
@@ -24,8 +24,8 @@ pub enum Rank {
 
 impl Ord for Rank {
     fn cmp(&self, other: &Rank) -> Ordering {
-        let self_ord = self.ordinal();
-        let other_ord = other.ordinal();
+        let self_ord: usize = self.ordinal();
+        let other_ord: usize = other.ordinal();
 
         if self_ord > other_ord {
             return Ordering::Less;
